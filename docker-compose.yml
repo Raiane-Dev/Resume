@@ -1,0 +1,48 @@
+version: "3.2"
+services:
+  server:
+    container_name: server
+    image: nginx:1.18.8
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+    environment:
+      - NGINX_HOST=raiane.com
+      - NGINX_PORT=80
+    command: ["nginx", "-g", "daemon off;"]
+
+  database:
+    container_name: database
+    image: postgres:10.3
+    env_file: ./.env
+    volumes:
+        - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  backend:
+    container_name: backend
+    image: node:18-alpine
+    ports:
+      - 8000:80
+    volumes:
+      - app:/Backend
+    env_file:
+      - ./Backend/.env
+    command:
+      - install && \ 
+        tools && \
+        dev
+    entrypoint: yarn --cwd app
+    restart: on-failure
+
+  frontend:
+    container_name: frontend
+    image: node:18-alpine
+    restart: unless-stopped
+
+volumes:
+  app:
+  postgres:
