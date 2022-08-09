@@ -33,8 +33,7 @@ class MailController
     public async store( req: Request, res: Response )
     {
         const data: MailProperties = req.body;
-        let ret: any = {};
-        
+
         buff("message.proto", "messagepackage.Message", data)
         .then((data) => {
 
@@ -42,28 +41,17 @@ class MailController
             .then( (info: any) => {
 
                 new UserController().hasOne({ id: info.authorId })
-                .then( (user: any) => {
-                    ret.message = { find_user: "Usuário encontrado." }
-                    ret.status = 200;
-                    sendmail(user.email, info.title, info.content);
-                })
-                .catch( (err: any) => {
-                    console.log(err);
-                    ret.message = { send_mail: "Erro ao enviar email!" };
-                    ret.status = 422;
-                });
+                    .then( (user: any) => {
+                        sendmail(user.email, info.title, info.content);
+                    });
 
-                res.json({ message: "Sucesso ao enviar!" }).status(200);
             })
             .catch( (err: any) => {
-                res.json({ message: "Erro ao enviar!" }).status(422);
-            })
+                console.log(err);
+            });
         });
     
-        res
-        .json({ message: ret.message })
-        .status(ret.status_code);
-    
+        res.json({ message: "Email enviado" });
     }
 }
 

@@ -1,9 +1,11 @@
 import { Router } from "express";
-import UserController from "../../controllers/Users/UserController";
+import AccessController from "../../controllers/Users/AccessController";
 
 const route = Router();
-const controller = new UserController();
+const controller = new AccessController();
 
-route.post("/", controller.store.bind(controller));
+route.post("/", controller.login.bind(controller));
+route.post("/register", controller.register.bind(controller));
+route.post("/logout", controller.logout.bind(controller));
 
 export default route;
