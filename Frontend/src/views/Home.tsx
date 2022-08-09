@@ -83,7 +83,7 @@ const Home = () =>
                                     <List.Item.Meta
                                         title={
                                             <Space className="item-list">
-                                                <Text> Raiane Dev </Text> <LinkedinOutlined />
+                                                <a href="https://www.linkedin.com/in/raiane-dev" target="__blank"><Text> Raiane Dev </Text></a> <LinkedinOutlined />
                                             </Space>
                                         }/>
                                         
