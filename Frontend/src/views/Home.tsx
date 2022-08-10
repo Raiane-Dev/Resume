@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Row, Col, Typography, Layout, Image, Space, List } from "antd";
-import { PhoneOutlined, MailOutlined, LinkedinOutlined } from "@ant-design/icons";
+import { PhoneOutlined, MailOutlined, LinkedinOutlined, GithubOutlined } from "@ant-design/icons";
 
 import { FormProperty, FormPattern } from "../types/Form";
 import FormEmail from "../components/FormEmail";
@@ -16,7 +16,7 @@ const Home = () =>
         <Layout.Content className="body-content">
             <Row justify="space-between" align="top">
                 <Col
-                span={12}
+                span={12} xxl={12} xl={12} lg={12} md={24} sm={24} xs={24}
                 className="box-left"
                 >
                     <Space direction="vertical">
@@ -34,7 +34,7 @@ const Home = () =>
                     className="box-image"
                     >
                         <Col 
-                        span={14}
+                        span={14} xxl={14} xl={14} lg={14} md={14} sm={14} xs={14}
                         className="box-image-column one"
                         >
                             <Image
@@ -57,9 +57,11 @@ const Home = () =>
                     </Row>
 
                 </Col>
-                <Col span={8}>
+                <Col 
+                span={8} xxl={8} xl={8} lg={8} md={24} sm={24} xs={24}
+                >
                     <Row justify="end" align="middle" className="grid-two">
-                        <Col span={24}>
+                        <Col>
                             <List itemLayout="vertical">
                                 <List.Item className="box-right">
                                     <List.Item.Meta
@@ -83,19 +85,24 @@ const Home = () =>
                                     <List.Item.Meta
                                         title={
                                             <Space className="item-list">
-                                                <a href="https://www.linkedin.com/in/raiane-dev" target="__blank"><Text> Raiane Dev </Text></a> <LinkedinOutlined />
+                                                <a href="https://www.linkedin.com/in/raiane-dev" target="__blank"><Text> Raiane A. Daros </Text></a> <LinkedinOutlined />
                                             </Space>
                                         }/>
-                                        
+                                    <List.Item.Meta
+                                        title={
+                                            <Space className="item-list">
+                                                <a href="https://github.com/Raiane-Dev" target="__blank"><Text> Raiane-Dev </Text></a> <GithubOutlined />
+                                            </Space>
+                                        }/>
                                 </List.Item>
                             </List>
                         </Col>
 
                         <Col className="spacing" />
-
+                                            
                         <Col className="box-right borded">
                             <Paragraph className="legend">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                                Sou desenvolvedora FullStack com ênfases na parte do Backend.
                             </Paragraph>
                         </Col>
 
@@ -103,63 +110,104 @@ const Home = () =>
 
                         <Space direction="vertical" className="box-right">
                             <Title level={5} className="subtitle">
-                                Info
+                                Sobre
                             </Title>
                             <Paragraph className="legend borded">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                                Eu sou apaixonada por resolver problemas e
+                                aprender. Sempre estou aberta a novos
+                                desafios e pronta para enfrentar as
+                                mudanças. Já utilizei as mais diferentes
+                                tecnologias e acredito que, antes de mais
+                                nada, tenho que solucionar problemas - e uso
+                                o meu conhecimento para isso.
                             </Paragraph>
                         </Space>
                     </Row>
                 </Col>
             </Row>
 
+            <Col className="spacing" />
 
             <Row
             justify="space-between" 
             align="top"
             >
                 <Col
-                span={12}
+                span={12} xxl={12} xl={12} lg={12} md={12} sm={24} xs={24}
                 className="box-left"
                 >
                     <Space wrap={true} className="text-column">
                         <Title level={5} className="subtitle">
-                            Formação
+                            Info
                         </Title>
                         <Paragraph className="subtitle two">
-                            To recipient name
+                            Residência
                         </Paragraph>
                         <Text>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        Bairro: Pantanal
+                        <br />Cidade: Florianópolis
+                        <br />Estado: Santa Catarina
                         </Text>
                         <Col className="spacing" />
                         <Paragraph className="subtitle two">
-                            To recipient name
+                            Contato
                         </Paragraph>
                         <Text>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        Email: raiane.dev@gmail.com
+                        <br />Github: github.com/Raiane-Dev
+                        <br />Linkedin: linkedin.com/in/raiane-dev/
+                        <br />Instagram: instagram.com/naniz_daros/
+                        <br />Telefone: +55 51 99566-4583                        
                         </Text>
                     </Space>
+                    <Col className="spacing" />
                 </Col>
                 <Col
-                span={8}
+                span={8} xxl={8} xl={8} lg={8} md={8} sm={24} xs={24}
                 className="box-left"
                 >
                     <Space wrap={true} className="text-column">
                         <Title level={5} className="subtitle">
-                            Info
+                            Linguagens
                         </Title>
                         <Text>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            PHP | C, C++ | JavaScript, TypeScript | PL / SQL | CSS, Less | Shell
                         </Text>
-
-                        <Col className="spacing" />
+                        <Col className="spacing entry-text" />
                         
                         <Title level={5} className="subtitle">
-                            Info
+                            Ambientes
                         </Title>
                         <Text>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            Docker | Arch Linux | Ubuntu | Nginx | Apache
+                        </Text>
+
+                        <Col className="spacing entry-text" />
+                        
+                        <Title level={5} className="subtitle">
+                            Bibliotecas
+                        </Title>
+                        <Text>
+                        jQuery | React JS | Node JS | Laravel
+                        </Text>
+
+                        <Col className="spacing entry-text" />
+                        
+                        <Title level={5} className="subtitle">
+                            Databases
+                        </Title>
+                        <Text>
+                        Oracle | MySql | Firebase | PostgreSQL
+                        </Text>
+
+                        <Col className="spacing entry-text" />
+                        
+                        <Title level={5} className="subtitle">
+                            Experiências
+                        </Title>
+                        <Text>
+                            Call center - ibridge.com.br
+                            < br />Fábrica de software - cd2.com.br
                         </Text>
                     </Space>
                 </Col>

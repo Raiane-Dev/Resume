@@ -4,6 +4,6 @@ import MailController from "../../controllers/Emails/MailController";
 const route = Router();
 const controller = new MailController();
 
-route.post("/", controller.store.bind(controller));
+route.post("/", controller.send.bind(controller));
 
 export default route;

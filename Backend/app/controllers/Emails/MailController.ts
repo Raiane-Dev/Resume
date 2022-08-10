@@ -53,6 +53,22 @@ class MailController
     
         res.json({ message: "Email enviado" });
     }
+
+
+    public async send( req: Request, res: Response )
+    {
+        const { email, title, content } = req.body;
+
+        buff("post_office.proto", "postofficepackage.PostOffice", { email, title, content })
+        .then((data) => {
+            sendmail(data.ret_buffer.email, data.ret_buffer.title, data.ret_buffer.content);
+        })
+        .catch( (err: any) => {
+            console.log(err);
+        });
+    
+        res.json({ message: "Email enviado" });
+    }
 }
 
 export default MailController;

@@ -1,5 +1,7 @@
 import { useMemo } from "react";
-import { Modal, Form, Input } from "antd";
+import { Modal, Form, Input, notification } from "antd";
+import { SmileOutlined } from "@ant-design/icons";
+
 import api from "../services/api";
 
 const FormEmail = ({show, handleAction}: any) => {
@@ -15,13 +17,17 @@ const FormEmail = ({show, handleAction}: any) => {
                 .then( async (values) => {
                     await api.post("/send-mail", values)
                     .then( async (response: any) => {
-                        
+                        console.log(response);
+
+                        notification.open({
+                            message: response.statusText,
+                            description: response.data.message,
+                            icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+                          });
                     })
                     .catch( (err) => {
 
                     });
-
-                    console.log(values);
                 })
                 .catch(info => {
                     console.log('Validate Failed:', info);

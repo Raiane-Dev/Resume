@@ -34,7 +34,7 @@
 .body-content
 {
   max-width: 80%;
-  margin: 2em 0;
+  padding-top: 2em;
 }
 .box-left
 {
@@ -147,4 +147,54 @@
 .spacing
 {
   margin: 2em 0;
+}
+.spacing.entry-text
+{
+  margin: 1em 0;
+}
+
+@media screen and (max-width: 780px) 
+{
+.feature
+{
+  white-space: break-spaces;
+  font-size: 3rem !important;
+  line-height: 1em !important;
+}
+.sub-text
+{
+  font-size: 1rem !important;
+}
+.subtitle
+{
+  font-size: 1.2rem !important;
+}
+.subtitle.two
+{
+  font-size: 1.1rem !important;
+}
+.my_image
+{
+  min-width: 50vw;
+}
+.item-list
+{
+  font-size: 1rem;
+}
+}
+
+@media screen and (min-width: 1600px) 
+{
+  #root
+  {
+    max-width: 100vw; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Public Sans', sans-serif;
+  }
+  .body-content
+  {
+    max-width: 50%;
+  }
 }
