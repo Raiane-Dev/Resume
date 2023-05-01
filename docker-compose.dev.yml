@@ -1,0 +1,21 @@
+version: "3.2"
+services:
+
+  backend:
+    container_name: app_backend
+    image: golang:1.19
+    env_file: ./backend/.env.test
+    volumes:
+      - ./backend/:/go/src
+      - ./frontend/build/:/public
+    ports:
+      - 80:80
+      - 433:433
+    tty: true
+    stdin_open: true
+    restart: always
+
+volumes:
+  app:
+  db:
+  cache:

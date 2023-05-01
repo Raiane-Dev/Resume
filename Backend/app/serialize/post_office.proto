@@ -1,7 +1,0 @@
-package postofficepackage;
-
-message PostOffice {
-    required string email = 1;
-    required string title = 2;
-    required string content = 3;
-}
