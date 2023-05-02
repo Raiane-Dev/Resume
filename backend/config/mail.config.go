@@ -1,6 +1,7 @@
 package config
 
 import (
+	"log"
 	"net/smtp"
 	"os"
 )
@@ -20,7 +21,7 @@ func ConnectionMail() *smtp.Client {
 	}
 
 	if err := conn.Auth(auth); err != nil {
-		panic(err)
+		log.Println("Connection", err)
 	}
 
 	return conn

@@ -5,7 +5,7 @@ services:
     container_name: backend
     restart: always
     build:
-      context: ./backend
+      context: .
       dockerfile: dockerfile
     image: raianedev/application_resume:1.0
     ports:

@@ -3,6 +3,7 @@ package models
 import (
 	"backend/resume/config"
 	"backend/resume/entities"
+	"log"
 	"os"
 )
 
@@ -21,19 +22,23 @@ func (req *UserInput) SendMail() error {
 		req.Message + "\r\n")
 
 	if err := conn.Mail(os.Getenv("MAIL")); err != nil {
-		panic(err)
+		log.Println("Connection err", err)
+		return err
 	}
 	if err := conn.Rcpt(req.Email); err != nil {
-		panic(err)
+		log.Println("Connection rept", err)
+		return err
 	}
 	wc, err := conn.Data()
 	if err != nil {
-		panic(err)
+		log.Println("Connection data", err)
+		return err
 	}
 	defer wc.Close()
 
 	if _, err := wc.Write(message); err != nil {
-		panic(err)
+		log.Println("Connection write", err)
+		return err
 	}
 
 	return nil

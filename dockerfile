@@ -1,6 +1,6 @@
 FROM golang:1.19-alpine AS build
 
-LABEL project="waf"
+LABEL project="resume"
 
 ## CONFIG GOLANG
 ENV PATH="$PATH:$(go env GOPATH)/bin"
@@ -13,8 +13,11 @@ RUN apk update && \
 		 apk add ca-certificates && \
 		  apk add tzdata
 
+WORKDIR /go/src
+
 COPY ./backend ./
-COPY ./frontend/dist /public
+ADD ./frontend/build /public
+
 
 RUN go mod tidy
 
@@ -28,5 +31,6 @@ WORKDIR /app
 
 COPY --from=build /usr/share/zoneinfo /usr/share/zoneinfo
 COPY --from=build /go/src/cmd/main ./
+COPY --from=build /public /public
 
 ENTRYPOINT ["/app/main"]

@@ -21,7 +21,7 @@ const FormEmail = ({show, handleAction}: any) => {
 
                         notification.open({
                             message: response.statusText,
-                            description: response.data.message,
+                            description: response.message,
                             icon: <SmileOutlined style={{ color: '#108ee9' }} />,
                           });
                     })
